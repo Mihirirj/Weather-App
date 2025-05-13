@@ -1,11 +1,11 @@
-// src/components/CurrentWeather.jsx
+
 import React from 'react';
 
 const CurrentWeather = ({ current, hourlyDetail, iconPath, cityName }) => {
-  // Determine which data to display: selected hourly or overall current
+  
   const displayData = hourlyDetail || current;
 
-  if (!displayData) return null; // If neither is available, render nothing
+  if (!displayData) return null; 
 
   // Check if we are displaying an hourly detail to adjust titles/text
   const isHourlyView = !!hourlyDetail; 
@@ -57,7 +57,7 @@ const CurrentWeather = ({ current, hourlyDetail, iconPath, cityName }) => {
           </div>
         </div>
       )}
-      {/* You could add a simple display for hourly data if it had more than temp/icon, e.g. wind for that hour */}
+      {/* -- */}
       {/* {isHourlyView && (
         <div className="hourly-specific-details">
            <p>Specifics for this hour...</p>
