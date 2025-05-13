@@ -1,4 +1,4 @@
-// src/components/HourlyForecast.jsx
+
 import React from 'react';
 
 // HourlyForecastItem now accepts onHourClick and isSelected
@@ -14,7 +14,7 @@ const HourlyForecastItem = ({ item, iconPath, onHourClick, isSelected }) => {
     >
       <p className="time">{item.time}</p>
       <img
-        src={`${iconPath}${item.icon}`} // Assuming item.icon is just the filename
+        src={`${iconPath}${item.icon}`} 
         alt={`Weather at ${item.time}`}
         className="weather-icon hourly-weather-icon"
       />
@@ -33,7 +33,7 @@ const HourlyForecast = ({ hourly, iconPath, onHourClick, selectedTime }) => {
       <ul className="weather-list">
         {hourly.map((item, index) => (
           <HourlyForecastItem 
-            key={`${item.time}-${index}`} // Better key if time can repeat in short lists
+            key={`${item.time}-${index}`} 
             item={item} 
             iconPath={iconPath}
             onHourClick={onHourClick} // Pass the click handler down
