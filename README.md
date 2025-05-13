@@ -10,20 +10,19 @@ A responsive weather application built with React that allows users to search fo
 
 ## Live Demo
 
-Check out the live version of the app here: **[YOUR_DEMO_LINK_HERE]**
+Check out the live version of the app here: **[]**
 
 ---
 
 ## Features
 
 *   **Current Weather Display:** Shows temperature, weather description, "feels like" temperature, humidity, and wind speed.
-*   **Hourly Forecast:** Provides an 셔-hour forecast with temperature and weather icons for upcoming times.
+*   **Hourly Forecast:** Provides an 24-hour forecast with temperature and weather icons for upcoming times.
 *   **Interactive Hourly Forecast:** Click on an hourly forecast item to see its specific details in the main display area.
 *   **City Search:** Users can search for weather by city name.
 *   **Current Location Weather:** Fetches weather data based on the user's current geolocation (requires browser permission).
 *   **Dynamic Weather Icons:** Displays different icons based on the weather conditions.
 *   **Responsive Design:** Adapts to different screen sizes for a good user experience on desktop, tablet, and mobile devices.
-*   **Automatic Refresh:** (Optional: Mention if you've fully implemented and tested this) Weather data for the last searched city refreshes periodically.
 
 ---
 
