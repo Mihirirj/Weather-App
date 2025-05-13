@@ -2,8 +2,9 @@
 
 A responsive weather application built with React that allows users to search for current weather conditions and hourly forecasts for cities worldwide. Users can also get weather information for their current location.
 
-![Weatherapp01](https://github.com/user-attachments/assets/f2491950-edc7-4515-b412-91e509e8a9c2)
-]
+(![Weathe_App 5JPG](https://github.com/user-attachments/assets/c3236b12-d2d1-4874-9957-f27f55b87a24)
+)
+
 
 
 
