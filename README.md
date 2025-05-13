@@ -2,8 +2,8 @@
 
 A responsive weather application built with React that allows users to search for current weather conditions and hourly forecasts for cities worldwide. Users can also get weather information for their current location.
 
-([![Weatherapp01](https://github.com/user-attachments/assets/f2491950-edc7-4515-b412-91e509e8a9c2)
-])])
+![Weatherapp01](https://github.com/user-attachments/assets/f2491950-edc7-4515-b412-91e509e8a9c2)
+]
 
 
 
@@ -34,9 +34,7 @@ Check out the live version of the app here: **[YOUR_DEMO_LINK_HERE]**
 *   **JavaScript (ES6+):** Core programming language.
 *   **CSS3:** For styling the application, including Flexbox and Grid for layout.
 *   **OpenWeatherMap API:** Used to fetch current weather data, hourly forecasts, and for geocoding city names.
-*   **HTML5:** Markup language.
-*   **Git & GitHub:** For version control and hosting the repository.
-
+  
 ---
 
 ## Setup and Installation
