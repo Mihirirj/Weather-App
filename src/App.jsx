@@ -11,7 +11,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedHour, setSelectedHour] = useState(null); // <<< NEW STATE for selected hourly item
+  const [selectedHour, setSelectedHour] = useState(null); 
 
   const iconPath = "/weather-app-reactjs-images-2024-09-21/icons/";
 
@@ -78,7 +78,7 @@ const App = () => {
     }
   }, []);
 
-  // <<< NEW: Handler for clicking an hourly forecast item
+  
   const handleHourClick = (hourData) => {
     console.log("Clicked hour:", hourData);
     setSelectedHour(hourData);
