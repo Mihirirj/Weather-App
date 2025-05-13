@@ -1,0 +1,419 @@
+
+
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+  background: linear-gradient(to bottom, #967abe, #ac89db); /* Corrected: use 'background' */
+  color: #333;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin: 20px;
+  background: linear-gradient(to bottom, #352163, #33143c);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 680px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  color: #fff;
+
+  /* --- Flexbox for layout without new wrappers --- */
+  display: flex;
+  flex-wrap: wrap;       /* Allows items to wrap to the next line */
+  align-items: center;   /* Vertically align items in the first 'row' (search & button) */
+  column-gap: 10px;      /* Gap between search-section and location-button */
+  /* row-gap: 20px; Remove if using margin-top on weather-section for spacing */
+}
+
+/* --- Search Section (now a flex item of .container) --- */
+.search-section {
+  flex-grow: 1;         /* Takes up available space in the first 'row' */
+  min-width: 0;         /* Prevents overflow with long input content */
+  /* Original styles from your prompt */
+  /* display: flex; (Not needed here as it's about the form inside) */
+  /* align-items: center; (Not needed here) */
+  /* gap: 10px; (Not needed here) */
+  /* padding: 25px; (Padding is now on .container or handled by form's height) */
+}
+
+.search-section .search-form {
+  height: 50px;         /* Consistent height */
+  width: 100%;
+  position: relative;
+}
+
+.search-section .search-form span.material-symbols-rounded {
+  color: #b3b3b3;
+  position: absolute;
+  top: 50%;             /* Corrected: percentage for vertical centering */
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  pointer-events: none;
+}
+
+.search-section .search-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  color: #fff;
+  font-size: 0.95rem;    /* Corrected: valid font-size value */
+  /* text-transform: uppercase; */ /* Optional */
+  border-radius: 8px;
+  padding: 0 20px 0 45px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.search-section .search-input::placeholder {
+  color: #b3b3b3;
+}
+
+.search-section .search-input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Location Button (now a flex item of .container) --- */
+.location-button {
+  flex-shrink: 0;       /* Prevents the button from shrinking */
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.location-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.location-button .material-symbols-rounded {
+  font-size: 1.6rem;
+}
+
+/* --- Weather Section (now a flex item of .container, forced to new line) --- */
+.weather-section {
+  flex-basis: 100%;     /* Ensures it takes full width, moving to a new line */
+  /* width: 100%; (Alternative to flex-basis) */
+  margin-top: 25px;     /* Space above the weather section */
+  text-align: center;
+}
+
+.weather-section :where(h2, p, h3) {
+  color: #fff;
+}
+
+.weather-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.current-weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.weather-section .temperature {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.weather-section .temperature span { /* For the main temperature's ℃ */
+  font-size: 1.5rem;
+  font-weight: 400;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.weather-section .description {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+}
+
+/* --- Hourly Forecast --- */
+.hourly-forecast {
+  margin-top: 20px;
+}
+
+.hourly-forecast h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.hourly-forecast .weather-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hourly-forecast .weather-list::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-forecast .weather-item {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 10px;
+  border-radius: 10px;
+  min-width: 70px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hourly-forecast .weather-item .time {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.hourly-weather-icon {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 8px;
+}
+
+.hourly-forecast .weather-item .temperature-hourly {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hourly-forecast .weather-item .temperature-hourly span { /* For hourly temperature's ℃ */
+  font-size: 0.7rem;
+  vertical-align: super;
+  margin-left: 1px;
+}
+/* ... your existing index.css styles ... */
+
+.loading-message,
+.error-message,
+.info-message {
+  flex-basis: 100%; /* Take full width on its own line */
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.loading-message {
+  color: #e0e0e0;
+}
+
+.error-message {
+  color: #ff6b6b; /* A reddish color for errors */
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 8px;
+}
+
+.info-message {
+  color: #ccc;
+}
+/* ... (your existing CSS from above) ... */
+
+/* --- Responsive Adjustments --- */
+
+/* Smaller than desktop, but larger than mobile - e.g., tablets */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%; /* Allow container to be more fluid */
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .weather-section .temperature {
+    font-size: 3rem; /* Slightly smaller main temp */
+  }
+  .weather-section .temperature span {
+    font-size: 1.3rem;
+  }
+
+  .weather-details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Adjust for smaller items */
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .detail-item .material-symbols-rounded {
+    font-size: 1.8rem;
+  }
+  .detail-item div p {
+    font-size: 0.9rem;
+  }
+  .detail-item div span {
+    font-size: 0.7rem;
+  }
+
+  .hourly-forecast .weather-item {
+    min-width: 65px; /* Slightly smaller hourly items */
+    padding: 10px 8px;
+  }
+  .hourly-weather-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .hourly-forecast .weather-item .temperature-hourly {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .container {
+    margin: 10px;
+    padding: 10px;
+    /* Remove flex-wrap behavior if search and location button should stack */
+    /* display: block; /* Uncomment if you want search and location button to stack */
+  }
+
+  /* If stacking search and location button: */
+  /* .search-section, .location-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .location-button {
+    height: 45px; 
+  } */
+
+  .search-section .search-form {
+    height: 45px;
+  }
+  .search-section .search-input {
+    font-size: 0.9rem;
+    padding: 0 15px 0 40px;
+  }
+   .search-section .search-form span.material-symbols-rounded {
+    font-size: 1.2rem;
+    left: 12px;
+  }
+
+  .location-button { /* If kept side-by-side, make it smaller */
+    height: 45px;
+    width: 45px;
+  }
+  .location-button .material-symbols-rounded {
+    font-size: 1.4rem;
+  }
+
+
+  .weather-section .temperature {
+    font-size: 2.5rem;
+  }
+  .weather-section .temperature span {
+    font-size: 1.1rem;
+  }
+  .weather-section .description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .weather-details-grid {
+    /* Stack details on smallest screens */
+    grid-template-columns: 1fr; /* Each item takes full width */
+    gap: 8px;
+  }
+  .detail-item {
+    padding: 8px;
+  }
+
+  .hourly-forecast h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .hourly-forecast .weather-list {
+    padding: 8px 3px; /* Reduce padding */
+    gap: 8px;
+  }
+  .hourly-forecast .weather-item {
+    min-width: 60px; /* Even smaller */
+    padding: 8px 5px;
+  }
+  .hourly-weather-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+/* ... (your existing CSS) ... */
+
+.hourly-forecast .weather-item {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 10px;
+  border-radius: 10px;
+  min-width: 70px;
+  text-align: center;
+  flex-shrink: 0;
+  cursor: pointer; /* Indicate it's clickable */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+  border: 2px solid transparent; /* Placeholder for selected border */
+}
+
+.hourly-forecast .weather-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.hourly-forecast .weather-item.selected {
+  background-color: rgba(140, 101, 201, 0.5); /* A purpleish highlight, adjust color */
+  border-color: #ad89db; /* Border to match theme */
+  transform: translateY(-2px);
+}
+
+.hourly-forecast .weather-item .time {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+/* ... (rest of your CSS) ... */
+
+.current-city-name { /* Style for the city name / hourly time display */
+  font-size: 1.2rem; /* Adjust as needed */
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
