@@ -1,4 +1,4 @@
-// src/components/SearchSection.jsx
+
 import React, { useState } from 'react';
 
 const SearchSection = ({ onSearch, onLocationSearch }) => {
@@ -13,7 +13,7 @@ const SearchSection = ({ onSearch, onLocationSearch }) => {
   };
 
   return (
-    <> {/* This fragment ensures these two elements are direct children of .container for flex layout */}
+    <> {/* -- */}
       <div className="search-section">
         <form onSubmit={handleSubmit} className="search-form">
           <span className="material-symbols-rounded">search</span>
